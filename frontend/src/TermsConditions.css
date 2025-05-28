@@ -1,0 +1,32 @@
+.full-banner img {
+    width: 100%;
+    border-radius: 10px;
+}
+.title{
+    position: relative;
+    bottom: 130px;
+    color:black;
+}
+.content{
+
+    margin-bottom: 10px;
+    text-align: justify;
+    margin-left: 24px;
+    margin-right: 24px;
+    
+}
+.content div{
+    margin-top:30px;
+}
+
+.s3 li{
+    padding-bottom: 30px;
+}
+.content h2{
+   padding-bottom: 10px; 
+}
+p{
+    line-height: 2rem;
+    font-size:large;
+    font-weight: 300;
+}

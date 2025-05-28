@@ -1,0 +1,149 @@
+/* Container Layout */
+.listing-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Sidebar */
+.sidebar {
+  flex: 1 1 200px;
+  margin-right: 20px;
+}
+
+/* Product Section */
+.product-section {
+  flex: 3 1 600px;
+  width: 100%;
+}
+
+/* Heading */
+.heading {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Grid Layout */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+/* Product Card */
+.product-card {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 10px;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+  position: relative;
+  max-width: 100%;
+  max-height:600px;
+  overflow: hidden;
+  white-space: nowrap;
+   text-overflow: ellipsis;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+/* Image Box */
+.image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+}
+
+.image-box img {
+  max-height: 100%;
+  max-width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+.image-box:hover img {
+  transform: scale(1.1);
+}
+
+/* Price Tag */
+.price {
+  font-weight: bold;
+  color: #ea580c;
+}
+
+/* Discount Label */
+.discount {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff9800;
+  color: white;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+/* Add to Cart Button */
+.cart-btn {
+  background-color: white;
+  color: #ea580c;
+  border: #ea580c 2px solid;  
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.cart-btn:hover {
+  background-image: linear-gradient(to right bottom, rgb(214, 75, 0), rgb(251, 146, 60));
+  color: white;
+}
+
+/* ✅✅✅ Responsive Fixes Start Here ✅✅✅ */
+@media (max-width: 768px) {
+  .listing-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+    /* Sidebar adjustments */
+    height: auto;
+  }
+
+  .product-section {
+    width: 100%;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .product-card {
+    padding: 8px;
+  }
+
+  .image-box {
+    height: 100px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .product-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

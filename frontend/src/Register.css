@@ -1,0 +1,116 @@
+* {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .left-section {
+    background-image: linear-gradient(to right, rgb(234, 88, 12), rgb(251, 146, 60));
+    flex: 1;
+    text-align: center;
+    position: relative;
+  }
+  
+  .right-section {
+    flex: 1;
+    padding: 30px;
+  }
+  
+  .container {
+    max-width: 400px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    border-radius: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9em;
+  }
+  
+  .btn {
+    background-image: linear-gradient(to right, rgb(234, 88, 12), rgb(251, 146, 60));
+    border: none;
+    padding: 10px;
+    color: white;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-image: linear-gradient(to right, rgb(251, 146, 60), rgb(234, 88, 12));
+  }
+  .form-control {
+    border-radius: 50px !important;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    box-shadow: none;
+    transition: border 0.3s;
+  }
+  
+  .form-control:focus {
+    border-color: #ea580c;
+    box-shadow: none;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 4px;
+  }
+  .logo-img {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    z-index: 100;
+    height: auto;
+    width: 280px;
+  }
+  @media (max-width: 767.98px) {
+    .left-section-login {
+      display: none;
+    }
+  }
+  
+  /* Make the logo responsive */
+  @media (max-width: 992px) {
+    .logo-img {
+      width: 220px;
+    }
+  }
+  @media (max-width: 768px) {
+    .logo-img {
+      width: 180px;
+    }
+  }
+  @media (max-width: 576px) {
+    .logo-img {
+      width: 140px;
+    }
+  }.t1 { top: 190px; left: 30px; }
+  .t2 { bottom: 190px; left: 80px; }
+  .t3 { top: 250px; right: 40px; }
+  .t4 { top: 80px; right: 100px; }
+  .t5 { bottom: 250px; left: 200px; }
+  .t6 { bottom: 100px; right: 200px; }
+  .t7 { top: 350px; left: 160px; }
+  .t8 { bottom: 200px; right: 40px; }
+  .t9 { bottom: 500px; right:200px; }
+  .t10 { bottom: 700px; right: px; }
+  .t11{ bottom: 600px; right:- 40px; }
+  .t12 { bottom: px; right: 40px; }
+  .t13{ bottom: 200px; right:- px; }
+  .t14 { bottom: 00px;}
+  .t15{ top: 400px; left: 40px; }
+  .t16{ bottom: 200px; right: 40px; }
+  .t17 { bottom: 100px; right: 40px;left: -200px; }

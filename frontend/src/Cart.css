@@ -1,0 +1,166 @@
+.cart-container {
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: linear-gradient(to right bottom, rgb(214, 75, 0), rgb(251, 146, 60));
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    cursor: pointer;
+    width: 120px;
+    z-index: 1000;
+}
+
+.cart-container .cart-icon {
+    font-size: 20px;
+}
+
+.cart-container .cart-items {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.cart-total {
+    color: #EA580C;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    background: white;
+    width: 180px;
+    height: 320px;
+    margin: 20px;
+}
+
+.product-card img {
+    width: 100px;
+}
+
+.cart {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 30%;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: right 0.3s;
+    z-index: 1001;
+}
+
+.cart.open {
+    right: 0;
+}
+
+.cart-title {
+    text-align: center;
+    font-size: 24px;
+}
+
+.cart-content {
+    max-height: 80%;
+    overflow-y:auto;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.btn-buy {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-image: linear-gradient(to right bottom, rgb(214, 75, 0), rgb(251, 146, 60));
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#cart-close {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #EA580C;
+}
+
+.quantity-manager {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+.quantity-manager button {
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.quantity-manager button:hover {
+    background-color: #ddd;
+}
+
+.quantity-manager span {
+    font-size: 16px;
+}
+
+#delete-btn {
+    border: none;
+    background: transparent;
+    position: relative;
+    left: 70%;
+}
+@media (max-width: 430px) {
+    .cart {
+      width: 100% !important;
+      padding: 15px;
+    }
+  
+    .product-card {
+      width: 45vw;
+      height: auto;
+      margin: 10px;
+    }
+  
+    .product-card img {
+      width: 80px;
+    }
+  
+    .cart-container {
+      width: 120px;
+      height: auto;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+    }
+  
+    #delete-btn {
+      border: none;
+      background: transparent;
+      position: absolute;
+      top: 5px;
+      right: 10px;
+    }
+  }
+  
+  

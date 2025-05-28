@@ -1,0 +1,100 @@
+.footer {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 40px 20px;
+  }
+  
+  .footer-divider {
+    border: none;
+    height: 3px;
+    background-color: #dd3c06;
+    margin-bottom: 20px;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer-col {
+    flex: 1 1 200px;
+    margin: 10px;
+  }
+  
+  .footer h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .footer p,
+  .footer ul,
+  .footer li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .footer ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer ul li a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .footer ul li a:hover {
+    color: #ff6600;
+  }
+  
+  .footer .icon {
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  
+  .store-img {
+    width: 120px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .social-icons .icon {
+    font-size: 28px;
+    color: #333;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  /* Hover Colors for Each Platform */
+  .icon.whatsapp:hover {
+    color: #25D366;
+  }
+  
+  .icon.instagram:hover {
+    color: #E1306C;
+  }
+  
+  .icon.facebook:hover {
+    color: #1877F2;
+  }
+  
+  .icon.youtube:hover {
+    color: #FF0000;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+  }
+  

@@ -1,0 +1,78 @@
+.sidebar {
+  background-color: #fff;
+
+  padding: 1rem;
+  border-radius: 10px;
+  
+  overflow-y: auto;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  margin-bottom: 30px;
+}
+
+.menu-title {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.menu-title:hover {
+  color: #EA580C;
+}
+
+.sub-menu {
+  list-style: none;
+  padding-left: 1rem;
+  margin-top: 5px;
+}
+.category-link{
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+  color: black;
+}
+
+.sub-menu li {
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  transition: color 0.4s ease;
+}
+
+.sub-menu li:hover {
+  color: #EA580C;
+}
+
+.arrow {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.btn-clear {
+  color: #ea580c;
+  border: 1px solid #ea580c;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  border-radius: 5px;
+  margin-top: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+}
