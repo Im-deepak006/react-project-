@@ -1,10 +1,10 @@
 import React from "react";
 import Slider from "react-slick";
 import { Box } from "@mui/material";
-import banner1 from "./assets/image/banner1.png";
-import banner2 from "./assets/image/banner2.png";
-import banner3 from "./assets/image/banner3.png";
-import banner5 from "./assets/image/banner5.png";
+import banner1 from "/assets/image/banner1.png";
+import banner2 from "/assets/image/banner2.png";
+import banner3 from "/assets/image/banner3.png";
+import banner5 from "/assets/image/banner5.png";
 
 const images = [banner1, banner2, banner3, banner5];
 

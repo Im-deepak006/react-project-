@@ -11,7 +11,7 @@ import { Box, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom"; // 👈 for routing
 import "./Navbar.css";
-import logo from "./assets/image/sambhaar.png";
+import logo from "/assets/image/sambhaar.png";
 
 function Topbar() {
   const [showSearch, setShowSearch] = useState(false);

@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './TermsConditions.css';
-import bannerImage from './assets/image/t&cbanner.jpg';
+import bannerImage from '/assets/image/t&cbanner.jpg';
 
 const TermsConditions = () => {
   return (

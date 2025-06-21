@@ -1,16 +1,16 @@
 import React from 'react';
 import './GroceryEssentials.css';
-import it1 from './assets/image/iteam1.jpg';
-import it2 from './assets/image/iteam2.jpg';
-import it3 from './assets/image/iteam3.png';
-import it4 from './assets/image/iteam4.jpg';
-import it5 from './assets/image/iteam5.jpg';
-import it6 from './assets/image/iteam6.jpg';
-import it7 from './assets/image/iteam7.png';
-import it8 from './assets/image/iteam8.jpg';
-import it9 from './assets/image/iteam9.jpg';
-import it10 from './assets/image/iteam10.png';
-import it11 from './assets/image/iteam11.jpg';
+import it1 from '/assets/image/iteam1.jpg';
+import it2 from '/assets/image/iteam2.jpg';
+import it3 from '/assets/image/iteam3.png';
+import it4 from '/assets/image/iteam4.jpg';
+import it5 from '/assets/image/iteam5.jpg';
+import it6 from '/assets/image/iteam6.jpg';
+import it7 from '/assets/image/iteam7.png';
+import it8 from '/assets/image/iteam8.jpg';
+import it9 from '/assets/image/iteam9.jpg';
+import it10 from '/assets/image/iteam10.png';
+import it11 from '/assets/image/iteam11.jpg';
 import ProductListing from './ProductListing';
 
 const GroceryEssentials = ({ addToCart }) => {

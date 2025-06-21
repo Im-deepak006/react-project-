@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Register.css";
-import sambhaarLogo from "./assets/image/sambhaar.png";
+import sambhaarLogo from "/assets/image/sambhaar.png";
 import { Link } from "react-router-dom";
 
 function Register() {

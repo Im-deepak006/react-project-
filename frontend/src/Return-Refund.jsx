@@ -1,6 +1,6 @@
 import React from 'react';
 import './ReturnRefund.css'; // Create a CSS file for styling
-import pp from "./assets/image/p&pbanner.jpg";
+import pp from "/assets/image/p&pbanner.jpg";
 
 const ReturnRefund = () => {
   return (

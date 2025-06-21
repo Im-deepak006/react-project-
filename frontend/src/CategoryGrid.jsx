@@ -1,14 +1,14 @@
 import React from "react";
 import "./CategoryGrid.css";
-import groceryImg from "./assets/image/Grocery-direy.png";
-import dairyImg from "./assets/image/diary.png";
-import oilImg from "./assets/image/oil.png";
-import sweetsImg from "./assets/image/sweets.png";
-import healthImg from "./assets/image/health.png";
-import poojaImg from "./assets/image/poja-essentials.png";
-import beveragesImg from "./assets/image/bevarges.png";
-import stationaryImg from "./assets/image/stationary.png";
-import cleaningImg from "./assets/image/cleaning.png";
+import groceryImg from "/assets/image/Grocery-direy.png";
+import dairyImg from "/assets/image/diary.png";
+import oilImg from "/assets/image/oil.png";
+import sweetsImg from "/assets/image/sweets.png";
+import healthImg from "/assets/image/health.png";
+import poojaImg from "/assets/image/poja-essentials.png";
+import beveragesImg from "/assets/image/bevarges.png";
+import stationaryImg from "/assets/image/stationary.png";
+import cleaningImg from "/assets/image/cleaning.png";
 import { useNavigate } from "react-router-dom";
 
 const categories = [

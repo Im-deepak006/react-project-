@@ -4,10 +4,10 @@ import Slider from "react-slick";
 import { Box } from "@mui/material";
 import "./promoCarousel.css";
 
-import img1 from "./assets/image/promo-banner1.png";
-import img2 from "./assets/image/promo-banner3.png";
-import img3 from "./assets/image/promo-banner2.png";
-import img4 from "./assets/image/promo-banner4.png";
+import img1 from "../public/assets/image/promo-banner1.png";
+import img2 from "/assets/image/promo-banner3.png";
+import img3 from "/assets/image/promo-banner2.png";
+import img4 from "/assets/image/promo-banner4.png";
 
 const promoImages = [
   { img: img1, alt: "Sports and Gym" },

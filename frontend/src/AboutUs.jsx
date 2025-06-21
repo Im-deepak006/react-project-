@@ -1,10 +1,10 @@
 import React from 'react';
-import aboutimg from './assets/image/aboutus.jpg';
-import aboutimg1 from './assets/image/aboutus1.png';
+import aboutimg from '/assets/image/aboutus.jpg';
+import aboutimg1 from '/assets/image/aboutus1.png';
 import './AboutUs.css';
-import  logo from './assets/image/sambhaar.png';
-import meela from './assets/image/meela.png';
-import gbuba from './assets/image/gbuba.png';
+import  logo from '/assets/image/sambhaar.png';
+import meela from '/assets/image/meela.png';
+import gbuba from '/assets/image/gbuba.png';
 const AboutUs = () => {
   return (
     <>

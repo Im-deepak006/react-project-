@@ -1,6 +1,6 @@
 import React from "react";
 import "./PrivacyPolicy.css";
-import pp from "./assets/image/p&pbanner.jpg";
+import pp from "/assets/image/p&pbanner.jpg";
 
 const PrivacyPolicy = () => {
   return (

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Login.css";
 import { Link } from "react-router-dom";
-import sambhaarLogo from "./assets/image/sambhaar.png";
+import sambhaarLogo from "/assets/image/sambhaar.png";
 
 function Login() {
   const [form, setForm] = useState({ email: "", password: "" });

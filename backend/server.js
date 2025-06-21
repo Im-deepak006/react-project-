@@ -1,31 +1,24 @@
 const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const connectDB = require('./config/db');
+const cors = require('cors');
 
-// Load environment variables
 dotenv.config();
+connectDB();
 
-// Initialize app
 const app = express();
-const PORT = process.env.PORT || 3001;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
+// Routes
+app.use('/products', require('./routes/productRoutes'));
 
-// MongoDB connection
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log('✅ MongoDB connected');
-    // Start server only after DB connection
-    app.listen(PORT, () => {
-      console.log(`🚀 Server running on port ${PORT}`);
-    });
-  })
-  .catch(err => console.error('❌ MongoDB connection error:', err));
-  app.get("/", (req, res) => {
-    res.send("🎉 Hello from Backend!");
-  });
-  
+app.get('/', (req, res) => {
+  res.send('API is running...');
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

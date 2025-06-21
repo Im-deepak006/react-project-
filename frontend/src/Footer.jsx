@@ -10,8 +10,8 @@ import {
   Facebook,
   YouTube
 } from '@mui/icons-material';
-import googlePlay from './assets/image/playstore.png';
-import appStore from './assets/image/app-store.png';
+import googlePlay from '/assets/image/playstore.png';
+import appStore from '/assets/image/app-store.png';
 
 const Footer = () => {
   return (
