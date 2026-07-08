@@ -35,14 +35,27 @@ function Login() {
     setErrors({ ...errors, [e.target.id]: "" });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      localStorage.setItem("loggedInEmail", form.email); // Save email in localStorage
-      alert("Login Successful!");
-      setForm({ email: "", password: "" }); // Clear form
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (validate()) {
+    try {
+      const res = await axios.post("http://localhost:5000/api/auth/login", {
+        email: form.email,
+        password: form.password,
+      });
+      const { token, user } = res.data;
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("username", user.username);
+      alert("Login successful!");
+
+      setForm({ email: "", password: "" });
+    } catch (err) {
+      alert(err.response?.data?.message || "Login failed");
     }
-  };
+  }
+};
+
 
   return (
     <div className="container-fluid-login">

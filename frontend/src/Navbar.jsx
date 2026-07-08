@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Navbar,
   Nav,
@@ -9,12 +9,35 @@ import {
 } from "react-bootstrap";
 import { Box, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { Link } from "react-router-dom"; // 👈 for routing
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 import logo from "/assets/image/sambhaar.png";
 
 function Topbar() {
   const [showSearch, setShowSearch] = useState(false);
+
+  // ✅ Auth state
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+
+  // ✅ Check token on load
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const name = localStorage.getItem("username");
+    if (token && name) {
+      setIsLoggedIn(true);
+      setUsername(name);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    setIsLoggedIn(false);
+    setUsername("");
+    alert("Logged out successfully");
+    window.location.href = "/";
+  };
 
   const handleSearchToggle = () => {
     setShowSearch(!showSearch);
@@ -38,20 +61,20 @@ function Topbar() {
         <Container fluid>
           <div className="d-flex w-100 justify-content-between align-items-center">
             <Navbar.Brand as={Link} to="/" className="m-0">
-                <Box
-                  component="img"
-                  src={logo}
-                  alt="Sambhaar"
-                  sx={{
-                    height: "50px",
-                    width: {
-                      xs: "160px",
-                      sm: "200px",
-                      md: "220px",
-                      lg: "250px",
-                    },
-                  }}
-                />
+              <Box
+                component="img"
+                src={logo}
+                alt="Sambhaar"
+                sx={{
+                  height: "50px",
+                  width: {
+                    xs: "160px",
+                    sm: "200px",
+                    md: "220px",
+                    lg: "250px",
+                  },
+                }}
+              />
             </Navbar.Brand>
 
             <Navbar.Toggle
@@ -88,19 +111,34 @@ function Topbar() {
                 )}
               </div>
 
-              <Button
-                className="ms-2"
-                style={{
-                  backgroundColor: "#EA580C",
-                  color: "#fff",
-                  border: "none",
-                  width: "100px",
-                }}
-                as={Link}
-                to="/login"
-              >
-                Login
-              </Button>
+              {/* ✅ Conditional Login/Logout button */}
+              {isLoggedIn ? (
+                <Button
+                  className="ms-2"
+                  style={{
+                    backgroundColor: "#EA580C",
+                    color: "#fff",
+                    border: "none",
+                  }}
+                  onClick={handleLogout}
+                >
+                  Logout ({username})
+                </Button>
+              ) : (
+                <Button
+                  className="ms-2"
+                  style={{
+                    backgroundColor: "#EA580C",
+                    color: "#fff",
+                    border: "none",
+                    width: "100px",
+                  }}
+                  as={Link}
+                  to="/login"
+                >
+                  Login
+                </Button>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -27,7 +27,7 @@ const ProductListing = ({ addToCart }) => {
               {p.discount && <span className="discount">{p.discount}% Off</span>}
               <div className="image-box">
                 <img
-                  src={`/assets/image/${p.image}`}
+                  src={p.image}
                   alt={p.name}
                 />
               </div>

@@ -58,20 +58,22 @@ function Register() {
     setErrors({ ...errors, [e.target.id]: "" });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      // Save the registration data into localStorage
-      localStorage.setItem("registeredUser", JSON.stringify({
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (validate()) {
+    try {
+      const res = await axios.post("http://localhost:5000/api/auth/register", {
         username: form.username,
         email: form.email,
         password: form.password,
-      }));
-
+      });
       alert("Registration Successful!");
       setForm({ username: "", email: "", password: "", cpassword: "" });
+    } catch (err) {
+      alert(err.response?.data?.message || "Registration failed");
     }
-  };
+  }
+};
 
   return (
     <div className="container-fluid d-flex vh-100 p-0"> 

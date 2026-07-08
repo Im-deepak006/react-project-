@@ -1,12 +1,36 @@
 import React, { useState } from "react";
 import "./Cart.css";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Cart = ({ cart, updateQuantity, removeFromCart, clearCart }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
   const itemCount = cart.reduce((acc, item) => acc + item.quantity, 0);
-  const navigate = useNavigate();
+
+  // ✅ Save cart to MongoDB when user clicks Buy Now
+  const saveCartToDB = async () => {
+    try {
+      const cleanedItems = cart.map(item => ({
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity,
+        image: typeof item.image === "string" ? item.image : "" // avoid local img reference in DB
+      }));
+
+      const res = await axios.post("http://localhost:5000/cart", {
+        userId: "665d4b2c8b0c1a2f8fa12345", // dummy userId for now
+        items: cleanedItems,
+        total: total,
+      });
+
+      console.log("✅ Cart saved:", res.data);
+    } catch (err) {
+      console.error("❌ Error saving cart:", err.response?.data || err.message);
+    }
+  };
 
   return (
     <>
@@ -49,14 +73,15 @@ const Cart = ({ cart, updateQuantity, removeFromCart, clearCart }) => {
         </div>
 
         <button
-  className="btn-buy"
-  onClick={() => {
-    setIsOpen(false);        // ✅ Close the cart drawer
-    navigate("/checkout");   // ✅ Navigate to Checkout page
-  }}
->
-  Buy Now
-</button>
+          className="btn-buy"
+          onClick={() => {
+            saveCartToDB();        // ✅ Save to MongoDB
+            setIsOpen(false);      // ✅ Close cart panel
+            navigate("/checkout"); // ✅ Redirect to checkout
+          }}
+        >
+          Buy Now
+        </button>
 
         <i className="ri-close-circle-fill" id="cart-close" onClick={() => setIsOpen(false)}></i>
       </div>
