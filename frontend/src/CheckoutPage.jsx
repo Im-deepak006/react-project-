@@ -5,7 +5,7 @@ import axios from "axios";
 const Checkout = ({ cart }) => {
   const [formData, setFormData] = useState({
     fullName: "",
-    addressLine1: "",
+    address: "",
     city: "",
     pinCode: "",
     mobile: "",
@@ -21,43 +21,58 @@ const Checkout = ({ cart }) => {
     }));
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  const token = localStorage.getItem("token");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const token = localStorage.getItem("token");
 
-  try {
-    const res = await axios.post(
-      "http://localhost:5000/order",
-      {
-        items: cart,
-        total: totalAmount,
-        deliveryDetails: formData,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`, // ✅ Attach JWT token here
+    if (!token) {
+      alert("❌ Please log in to place an order.");
+      return;
+    }
+
+    if (cart.length === 0) {
+      alert("❌ Your cart is empty.");
+      return;
+    }
+
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/order",
+        {
+          items: cart.map(item => ({
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+            image: typeof item.image === "string" ? item.image : ""
+          })),
+          total: totalAmount,
+          deliveryDetails: formData, // Maps to 'address' in backend
         },
-      }
-    );
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-    alert("✅ Order Placed Successfully!");
-    setFormData({
-      fullName: "",
-      addressLine1: "",
-      city: "",
-      pinCode: "",
-      mobile: "",
-    });
-  } catch (err) {
-    console.error("❌ Failed to place order", err);
-    alert(err.response?.data?.message || "❌ Something went wrong placing the order!");
-  }
-};
-
+      alert("✅ Order Placed Successfully!");
+      setFormData({
+        fullName: "",
+        address: "",
+        city: "",
+        pinCode: "",
+        mobile: "",
+      });
+    } catch (err) {
+      console.error("❌ Failed to place order", err);
+      alert(err.response?.data?.message || "❌ Something went wrong placing the order!");
+    }
+  };
 
   return (
     <div className="checkout-container">
       <h2>Checkout</h2>
+
       <form className="checkout-form" onSubmit={handleSubmit}>
         <div className="form-section">
           <h3>Delivery Details</h3>
@@ -71,9 +86,9 @@ const handleSubmit = async (e) => {
           />
           <input
             type="text"
-            name="addressLine1"
-            placeholder="Address Line 1"
-            value={formData.addressLine1}
+            name="address"
+            placeholder="Address (House No, Street, Area)"
+            value={formData.address}
             onChange={handleChange}
             required
           />
@@ -115,6 +130,7 @@ const handleSubmit = async (e) => {
           <div className="total">
             <strong>Total:</strong> ₹{totalAmount}
           </div>
+
           <button type="submit" className="checkout-btn">Place Order</button>
         </div>
       </form>

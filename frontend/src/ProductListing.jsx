@@ -2,16 +2,22 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Sidebar from './Sidebar';
 import './ProductCard.css';
+import { useParams } from 'react-router-dom';
 
 const ProductListing = ({ addToCart }) => {
   const [products, setProducts] = useState([]);
+  const { categoryId } = useParams();
 
   useEffect(() => {
-    // Fetch from backend
-    axios.get('http://localhost:5000/products')
+    // Fetch from backend with optional category filtering
+    const url = categoryId 
+      ? `http://localhost:5000/products?category=${categoryId}`
+      : 'http://localhost:5000/products';
+
+    axios.get(url)
       .then(res => setProducts(res.data))
       .catch(err => console.error('Error fetching products:', err));
-  }, []);
+  }, [categoryId]);
 
   return (
     <div className="listing-container">

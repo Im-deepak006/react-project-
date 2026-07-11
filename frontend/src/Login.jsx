@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import sambhaarLogo from "/assets/image/sambhaar.png";
 
 function Login() {
@@ -35,27 +36,25 @@ function Login() {
     setErrors({ ...errors, [e.target.id]: "" });
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (validate()) {
-    try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
-        email: form.email,
-        password: form.password,
-      });
-      const { token, user } = res.data;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (validate()) {
+      try {
+        const res = await axios.post("http://localhost:5000/auth/login", {
+          email: form.email,
+          password: form.password,
+        });
+        const { token, user } = res.data;
 
-      localStorage.setItem("token", token);
-      localStorage.setItem("username", user.username);
-      alert("Login successful!");
-
-      setForm({ email: "", password: "" });
-    } catch (err) {
-      alert(err.response?.data?.message || "Login failed");
+        localStorage.setItem("token", token);
+        localStorage.setItem("username", user.username);
+        alert("Login successful!");
+        window.location.href = "/";
+      } catch (err) {
+        alert(err.response?.data?.message || "Login failed");
+      }
     }
-  }
-};
-
+  };
 
   return (
     <div className="container-fluid-login">
@@ -72,7 +71,7 @@ function Login() {
           <span className="t2">स्वागत है</span>
           <span className="t3">Welcome</span>
           <span className="t4">స్వాగతం</span>
-          <span className="t5">സ്വാഗതം</span>
+          <span className="t5">സ്വാగതം</span>
           <span className="t6">স্বাগত</span>
           <span className="t7">स्वागतम्</span>
           <span className="t8">ಸ್ವಾಗತ</span>
@@ -80,7 +79,7 @@ function Login() {
           <span className="t10">स्वागत है</span>
           <span className="t11">Welcome</span>
           <span className="t12">స్వాగతం</span>
-          <span className="t13">സ്വാഗതം</span>
+          <span className="t13">സ്വാగതം</span>
           <span className="t14">স্বাগত</span>
           <span className="t15">स्वागतम्</span>
           <span className="t16">ಸ್ವಾಗತ</span>

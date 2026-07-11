@@ -12,19 +12,15 @@ import cleaningImg from "/assets/image/cleaning.png";
 import { useNavigate } from "react-router-dom";
 
 const categories = [
-  { title: "Grocery Essentials", img: groceryImg ,path:"/shop/grocery-essentials"},
-  { title: "Dairy & Fresh Foods", img: dairyImg,path:"/shop/grocery-essentials" },
-  { title: "Oils & Condiments", img: oilImg ,path:"/shop/grocery-essentials"},
-  { title: "Sweets & Savouries", img: sweetsImg,path:"/shop/grocery-essentials" },
-  { title: "Health & Personalcare", img: healthImg,path:"/shop/grocery-essentials" },
-  { title: "Pooja Essential", img: poojaImg ,path:"/shop/grocery-essentials"},
-  { title: "Beverages & Frozen Foods", img: beveragesImg,path:"/shop/grocery-essentials" },
-  { title: "Stationary & Fancy items", img: stationaryImg,path:"/shop/grocery-essentials" },
-  { title: "Cleaning & Household", img: cleaningImg ,path:"/shop/grocery-essentials"},
-  { title: "Sweets & Savouries", img: sweetsImg,path:"/shop/grocery-essentials" },
-  { title: "Health & Personalcare", img: healthImg ,path:"/shop/grocery-essentials"},
-  { title: "Back Again", img: stationaryImg,path:"/shop/grocery-essentials" },
-
+  { title: "Grocery Essentials", img: groceryImg, path: "/shop/grocery-essentials" },
+  { title: "Dairy & Fresh Foods", img: dairyImg, path: "/shop/dairy-fresh" },
+  { title: "Oils & Condiments", img: oilImg, path: "/shop/oils-condiments" },
+  { title: "Sweets & Savouries", img: sweetsImg, path: "/shop/Sweets-Savouries" },
+  { title: "Health & Personalcare", img: healthImg, path: "/shop/Health-Personal" },
+  { title: "Pooja Essential", img: poojaImg, path: "/shop/pooja-essentials" },
+  { title: "Beverages & Frozen Foods", img: beveragesImg, path: "/shop/Beverages-Frozen" },
+  { title: "Stationary & Fancy items", img: stationaryImg, path: "/shop/stationery-fancy" },
+  { title: "Cleaning & Household", img: cleaningImg, path: "/shop/cleaning-household" }
 ];
 
 const CategoryGrid = () => {

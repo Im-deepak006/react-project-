@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Register.css";
 import sambhaarLogo from "/assets/image/sambhaar.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Register() {
   const [form, setForm] = useState({
@@ -58,22 +59,23 @@ function Register() {
     setErrors({ ...errors, [e.target.id]: "" });
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (validate()) {
-    try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", {
-        username: form.username,
-        email: form.email,
-        password: form.password,
-      });
-      alert("Registration Successful!");
-      setForm({ username: "", email: "", password: "", cpassword: "" });
-    } catch (err) {
-      alert(err.response?.data?.message || "Registration failed");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (validate()) {
+      try {
+        await axios.post("http://localhost:5000/auth/register", {
+          username: form.username,
+          email: form.email,
+          password: form.password,
+        });
+        alert("Registration Successful!");
+        setForm({ username: "", email: "", password: "", cpassword: "" });
+        window.location.href = "/login"; // Redirect to login page
+      } catch (err) {
+        alert(err.response?.data?.message || "Registration failed");
+      }
     }
-  }
-};
+  };
 
   return (
     <div className="container-fluid d-flex vh-100 p-0"> 
@@ -89,7 +91,7 @@ const handleSubmit = async (e) => {
           <span className="t2">स्वागत है</span>
           <span className="t3">Welcome</span>
           <span className="t4">స్వాగతం</span>
-          <span className="t5">സ്വാഗതം</span>
+          <span className="t5">സ്വാగതം</span>
           <span className="t6">স্বাগত</span>
           <span className="t7">स्वागतम्</span>
           <span className="t8">ಸ್ವಾಗತ</span>
@@ -97,7 +99,7 @@ const handleSubmit = async (e) => {
           <span className="t10">स्वागत है</span>
           <span className="t11">Welcome</span>
           <span className="t12">స్వాగతం</span>
-          <span className="t13">സ്വാഗതം</span>
+          <span className="t13">സ്വാగതം</span>
           <span className="t14">স্বাগত</span>
           <span className="t15">स्वागतम्</span>
           <span className="t16">ಸ್ವಾಗತ</span>
@@ -181,7 +183,7 @@ const handleSubmit = async (e) => {
               {errors.cpassword && <div className="error">{errors.cpassword}</div>}
             </div>
 
-            <button type="submit" className="btn" i>
+            <button type="submit" className="btn">
               Submit
             </button>
             <p className="login-link mt-2">

@@ -67,7 +67,7 @@ const Sidebar = () => {
                 {category.sub.map((item, index) => (
                   <li key={index}>
                     {/* Link to the product page for this sub-category */}
-                    <Link to={`${category.id}`} className="category-link">
+                    <Link to={`/shop/${category.id}`} className="category-link">
                       {item}
                     </Link>
                   </li>

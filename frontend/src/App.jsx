@@ -80,15 +80,7 @@ const App = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/return-refund" element={<ReturnRefund />} />
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/shop/grocery-essentials" element={<GroceryEssentials addToCart={addToCart} />} />
-        <Route path="/shop/oils-condiments" element={<GroceryEssentials addToCart={addToCart} />} />
-        <Route path="/shop/sweets-savouries" element={<GroceryEssentials addToCart={addToCart} />} />
-        <Route path="/shop/beverages-frozen" element={<GroceryEssentials addToCart={addToCart} />} />
-        <Route path="/shop/health-personal" element={<GroceryEssentials addToCart={addToCart} />} />
-        <Route path="/shop/cleaning-household" element={<GroceryEssentials addToCart={addToCart} />} />
-        <Route path="/shop/pooja-essentials" element={<GroceryEssentials addToCart={addToCart} />} />
-        <Route path="/shop/stationery-fancy" element={<GroceryEssentials addToCart={addToCart} />} />
-        <Route path="/shop/dairy-fresh" element={<GroceryEssentials addToCart={addToCart} />} />
+        <Route path="/shop/:categoryId" element={<GroceryEssentials addToCart={addToCart} />} />
         <Route path="/checkout" element={<Checkout cart={cart} />} />
 
       </Routes>

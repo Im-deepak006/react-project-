@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Cart.css";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Cart = ({ cart, updateQuantity, removeFromCart, clearCart }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,17 +13,26 @@ const Cart = ({ cart, updateQuantity, removeFromCart, clearCart }) => {
   // ✅ Save cart to MongoDB when user clicks Buy Now
   const saveCartToDB = async () => {
     try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        console.warn("⚠️ User is not logged in. Cart will not be saved to DB.");
+        return;
+      }
+
       const cleanedItems = cart.map(item => ({
         name: item.name,
         price: item.price,
         quantity: item.quantity,
-        image: typeof item.image === "string" ? item.image : "" // avoid local img reference in DB
+        image: typeof item.image === "string" ? item.image : ""
       }));
 
       const res = await axios.post("http://localhost:5000/cart", {
-        userId: "665d4b2c8b0c1a2f8fa12345", // dummy userId for now
         items: cleanedItems,
         total: total,
+      }, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       });
 
       console.log("✅ Cart saved:", res.data);
@@ -74,10 +83,10 @@ const Cart = ({ cart, updateQuantity, removeFromCart, clearCart }) => {
 
         <button
           className="btn-buy"
-          onClick={() => {
-            saveCartToDB();        // ✅ Save to MongoDB
-            setIsOpen(false);      // ✅ Close cart panel
-            navigate("/checkout"); // ✅ Redirect to checkout
+          onClick={async () => {
+            await saveCartToDB();
+            setIsOpen(false);        // ✅ Close the cart drawer
+            navigate("/checkout");   // ✅ Navigate to Checkout page
           }}
         >
           Buy Now

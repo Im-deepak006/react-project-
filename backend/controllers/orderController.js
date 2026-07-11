@@ -5,6 +5,7 @@ exports.placeOrder = async (req, res) => {
     const { items, total, deliveryDetails } = req.body;
 
     const order = new Order({
+      userId: req.user.id, // Set authenticated user ID
       items,
       total,
       deliveryDetails,
